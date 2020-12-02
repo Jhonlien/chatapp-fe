@@ -1,17 +1,17 @@
 import React, {useState} from 'react'
-import '../../assets/scss/auth/Auth.scss';
+import '../../assets/scss/auth/Auth.scss'
 import loginImage from '../../assets/images/auth/login.svg'
-import { Link } from "react-router-dom";
-import axios from 'axios'
+import { Link } from "react-router-dom"
+import {login} from '../../store/actions/auth'
+import {useDispatch} from 'react-redux'
 
-const Login = () => {
+const Login = ({ history }) => {
+    const dispatch = useDispatch();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const submitForm = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:4000/login', {email, password})
-        .then(res => console.log(res.data))
-        .catch(err => console.log(err.message));
+        dispatch(login({email, password}, history))
     }
     return (
         <div id="auth-container">

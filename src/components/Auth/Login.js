@@ -3,7 +3,7 @@ import '../../assets/scss/auth/Auth.scss'
 import loginImage from '../../assets/images/auth/login.svg'
 import { Link } from "react-router-dom"
 import {login} from '../../store/actions/auth'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 
 const Login = ({ history }) => {
     const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const Login = ({ history }) => {
     const [password, setPassword] = useState('')
     const submitForm = (e) => {
         e.preventDefault()
-        dispatch(login({email, password}, history))
+        dispatch(login({email, password}, history));
     }
     return (
         <div id="auth-container">

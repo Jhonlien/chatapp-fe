@@ -1,4 +1,4 @@
-import {LOGIN} from '../actions/auth'
+import {LOGIN, REGISTER} from '../actions/auth'
 
 const initialState = {
     user : {},
@@ -7,19 +7,25 @@ const initialState = {
 }
 
 const authReducer = (state = initialState, action) => {
-    const {type, payload} = action
-    switch(type){
+    // const {type, payload} = action
+
+    switch (action.type) {
         case LOGIN:
-            return{
+          return { 
                 ...state,
-                user: payload,
-                token : payload,
+                user: action.payload,
+                token : action.payload.token,
                 isLoggedIn : true
             }
-        default : 
-            return {
-                state
-            }
+        case REGISTER:
+            return { 
+                    ...state,
+                    user: action.payload,
+                    token : action.payload.token,
+                    isLoggedIn : true
+                }
+        default:
+          return state
     }
 }
 

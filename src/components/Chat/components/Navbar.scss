@@ -1,4 +1,4 @@
-@import '../../../../assets/scss/variables';
+@import '../../../assets/scss/auth/variables';
 
 #navbar {
     display: flex;
@@ -54,6 +54,11 @@
                 margin: 10px 5px;
                 color: black;
             }
+        }
+
+        .profile-image{
+            width: 12%;
+            margin-right: 10px;
         }
 
         form {
